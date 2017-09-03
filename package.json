@@ -2,6 +2,9 @@
   "name": "eu4calculator",
   "version": "1.0.0",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rockinrimmer/eu4calculator/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

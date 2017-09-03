@@ -1,5 +1,7 @@
 # Eu4calculator
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rockinrimmer/eu4calculator.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/rockinrimmer/eu4calculator.svg?branch=master)](https://travis-ci.org/rockinrimmer/eu4calculator)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.

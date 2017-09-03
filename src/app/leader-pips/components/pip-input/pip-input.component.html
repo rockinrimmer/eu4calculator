@@ -1,0 +1,34 @@
+<md-card class="card">
+  <md-card-header>
+    <md-icon md-card-avatar class="fa fa-wrench fa-3x"></md-icon>
+    <md-card-title>Options</md-card-title>
+  <md-card-subtitle>Change these to your current in-game values</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <form [formGroup]="traditionForm">
+      <label for="typeButtons">Leader Type</label>
+      <p>
+        <md-radio-group class="radio-group" formControlName="selectedLeaderType" id="typeButtons" >
+          <md-radio-button class="radio-button" *ngFor="let type of leaderTypes" [value]="type" labelPosition="before" >
+            <img src="/assets/{{typesEnum[type]}}.png" mdTooltip="{{typesEnum[type]}}" mdTooltipPosition="below"/>
+          </md-radio-button>
+        </md-radio-group>
+      </p>
+
+      <p>
+        <md-form-field>
+          <input mdInput placeholder="{{traditionName}}" type="text" formControlName="tradition" />
+        </md-form-field>
+      </p>
+
+      <p>
+        <md-form-field>
+          <input mdInput placeholder="Military Skill" type="text" formControlName="militarySkill" />
+        </md-form-field>
+      </p>
+    </form>
+    <p>
+      Form Status: {{traditionForm.status}}
+    </p>
+  </md-card-content>
+</md-card>

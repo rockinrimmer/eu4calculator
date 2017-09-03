@@ -1,0 +1,24 @@
+<md-card class="card">
+  <md-card-header>
+    <md-icon md-card-avatar class="fa fa-info-circle fa-3x"></md-icon>
+    <md-card-title>Output</md-card-title>
+    <md-card-subtitle>Results from the Leader Pip Calculator</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <h3>Stats</h3>
+    <p>
+      Average Pips: <strong>{{avgTotalPips | number : '1.0-1'}}</strong>
+    </p>
+    <p>
+      Minimum Pips: <strong>{{minPips | number : '1.0-1'}}</strong>
+    </p>
+    <p>
+      Maximum Pips: <strong>{{maxPips | number : '1.0-1'}}</strong>
+    </p>
+    <app-pip-distribution
+      [avgTotalPips]="avgTotalPips"
+      [leaderType]="leaderType"
+    ></app-pip-distribution>
+
+  </md-card-content>
+</md-card>

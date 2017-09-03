@@ -1,0 +1,16 @@
+
+<h3>Average Pip Distribution</h3>
+<table>
+  <tr>
+    <th><img src="/assets/{{typeFilenamePrefix}}_leader_fire.png" mdTooltip="Leader Fire" mdTooltipPosition="above"/></th>
+    <th><img src="/assets/{{typeFilenamePrefix}}_leader_shock.png" mdTooltip="Leader Shock" mdTooltipPosition="above"/></th>
+    <th><img src="/assets/{{typeFilenamePrefix}}_leader_maneuver.png" mdTooltip="Leader Maneuver" mdTooltipPosition="above"/></th>
+    <th *ngIf="typeFilenamePrefix === 'Land'"><img src="/assets/Leader_siege.png" mdTooltip="Leader Siege" mdTooltipPosition="above"/></th>
+  </tr>
+  <tr>
+    <td><strong>{{avgPipDistribution.fire | number : '1.0-1'}}</strong></td>
+    <td><strong>{{avgPipDistribution.shock | number : '1.0-1'}}</strong></td>
+    <td><strong>{{avgPipDistribution.maneuver | number : '1.0-1'}}</strong></td>
+    <td *ngIf="typeFilenamePrefix === 'Land'"><strong>{{avgPipDistribution.siege | number : '1.0-1'}}</strong></td>
+  </tr>
+</table>

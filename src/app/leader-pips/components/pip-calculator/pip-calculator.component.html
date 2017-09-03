@@ -1,0 +1,32 @@
+<section style="text-align:center">
+  <h1>
+    Leader Pip Calculator
+  </h1>
+  <p>
+    The Leader Pip Calculator allows you to estimate how many pips a General etc will get when you next try to roll one.
+  </p>
+</section>
+<section class="container">
+  <div fxLayout="row" fxLayoutAlign="center" class="content">
+    <div class="blocks">
+      <app-pip-output
+        [avgTotalPips]="avgTotalPips"
+        [minPips]="minPips"
+        [maxPips]="maxPips"
+        [leaderType]="leaderType"
+      ></app-pip-output>
+    </div>
+    <div class="blocks">
+      <app-pip-input
+        (avgTotalPips)="setAvgTotalPips($event)"
+        (leaderType)="setLeaderType($event)"
+        (minPips)="setMinPips($event)"
+        (maxPips)="setMaxPips($event)"
+      ></app-pip-input>
+    </div>
+  </div>
+</section>
+
+
+
+

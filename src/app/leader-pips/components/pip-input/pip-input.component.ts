@@ -1,8 +1,11 @@
+import {PipType} from '../../models/pip-type';
+import { PipBonus } from './../../models/pip-bonus';
 import { PipDistribution } from './../../models/pip-distribution';
 import { PipCalculatorService } from './../../services/pip-calculator.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LeaderType } from '../../models/leader-type';
+import { MdCheckboxChange } from '@angular/material/typings';
 
 @Component({
   selector: 'app-pip-input',
@@ -21,6 +24,14 @@ export class PipInputComponent implements OnInit {
                         LeaderType.Ruler,
                         LeaderType.Heir];
 
+  pipBonuses: PipBonus[] = [
+    new PipBonus('Offensive idea 3: Superior Firepower', PipType.Fire),
+    new PipBonus('Expansion-Quality: The Mining Act', PipType.Fire)
+  ];
+
+
+  selectedPipBonuses: PipBonus[] = [];
+
   @Output()
   avgTotalPips = new EventEmitter<number>();
 
@@ -32,6 +43,9 @@ export class PipInputComponent implements OnInit {
 
   @Output()
   leaderType = new EventEmitter<LeaderType>();
+
+  @Output()
+  pipBonusesOutput = new EventEmitter<PipBonus[]>();
 
   constructor(private formBuilder: FormBuilder, private pipCalculatorService: PipCalculatorService) {
     this.traditionForm = this.formBuilder.group({
@@ -57,10 +71,26 @@ export class PipInputComponent implements OnInit {
 
   emitData(form) {
     console.log(form);
-    this.avgTotalPips.emit(this.pipCalculatorService.calculatePips(form.selectedLeaderType, form.tradition, form.militarySkill));
+    console.log(this.selectedPipBonuses.length);
+    this.avgTotalPips.emit(this.pipCalculatorService.calculatePips(
+      form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
     this.leaderType.emit(form.selectedLeaderType);
-    this.minPips.emit(this.pipCalculatorService.calculateMinPips(form.selectedLeaderType, form.tradition, form.militarySkill));
-    this.maxPips.emit(this.pipCalculatorService.calculateMaxPips(form.selectedLeaderType, form.tradition, form.militarySkill));
+    this.minPips.emit(this.pipCalculatorService.calculateMinPips(
+      form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
+    this.maxPips.emit(this.pipCalculatorService.calculateMaxPips
+      (form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
+    this.pipBonusesOutput.emit(this.selectedPipBonuses);
+  }
+
+  addPipBonus(event: MdCheckboxChange ) {
+    console.log(event);
+    if (event.checked) {
+      this.selectedPipBonuses.push(this.pipBonuses[event.source.value]);
+    } else {
+      this.selectedPipBonuses = this.selectedPipBonuses.filter(item => item.name !== this.pipBonuses[event.source.value].name);
+    }
+
+    this.emitData(this.traditionForm.getRawValue());
   }
 
 }

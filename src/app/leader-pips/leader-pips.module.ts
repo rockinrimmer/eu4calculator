@@ -2,7 +2,7 @@ import { PipInputComponent } from './components/pip-input/pip-input.component';
 import { PipOutputComponent } from './components/pip-output/pip-output.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule, MdTooltipModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule, MdTooltipModule, MdCheckboxModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeaderPipsRouting } from './leader-pips.routing';
 import { PipCalculatorService } from './services/pip-calculator.service';
@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
     MdRadioModule,
     MdCardModule,
     MdTooltipModule,
+    MdCheckboxModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

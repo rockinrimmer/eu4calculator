@@ -26,6 +26,13 @@
           <input mdInput placeholder="Military Skill" type="text" formControlName="militarySkill" />
         </md-form-field>
       </p>
+
+      <h3>
+        Guarenteed Pips: {{selectedPipBonuses.length}}
+      </h3>
+      <div *ngFor="let bonus of pipBonuses; let i = index">
+        <md-checkbox [value]="i" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+      </div>
     </form>
     <p>
       Form Status: {{traditionForm.status}}

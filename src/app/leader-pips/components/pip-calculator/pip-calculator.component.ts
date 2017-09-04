@@ -1,3 +1,4 @@
+import { PipBonus } from './../../models/pip-bonus';
 import { Component, OnInit } from '@angular/core';
 import { LeaderType } from '../../models/leader-type';
 
@@ -12,6 +13,7 @@ export class PipCalculatorComponent implements OnInit {
   minPips: number;
   maxPips: number;
   leaderType: LeaderType;
+  pipBonuses: PipBonus[];
 
   constructor() {}
 
@@ -38,6 +40,10 @@ export class PipCalculatorComponent implements OnInit {
 
   setMaxPips(event) {
     this.maxPips = event;
+  }
+
+  setPipBonuses(event) {
+    this.pipBonuses = event;
   }
 
 }

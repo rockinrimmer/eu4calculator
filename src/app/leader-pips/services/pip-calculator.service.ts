@@ -17,7 +17,7 @@ export class PipCalculatorService {
     LeaderType.Heir
   ];
 
-  calculatePips(type: LeaderType, tradition: number, militarySkill: number): number {
+  calculatePips(type: LeaderType, tradition: number, militarySkill: number, guarenteedPips: number): number {
 
     let sum = 0;
     tradition = this.modifyTradition(type, tradition, militarySkill);
@@ -32,13 +32,16 @@ export class PipCalculatorService {
       pips += this.getRandomInt(1, 100) <= (tradition - 80) ? 1 : 0;
       pips += this.getRandomInt(0, 1) === 1 ? 1 : 0;
 
+      pips += guarenteedPips;
+
       sum += pips;
     }
 
+    console.log(sum / this.iterations);
     return sum / this.iterations;
   }
 
-  calculateMaxPips(type: LeaderType, tradition: number, militarySkill: number): number {
+  calculateMaxPips(type: LeaderType, tradition: number, militarySkill: number, guarenteedPips: number): number {
     tradition = this.modifyTradition(type, tradition, militarySkill);
 
     let pips = 6 + Math.floor(tradition / 20);
@@ -49,15 +52,19 @@ export class PipCalculatorService {
     pips += (tradition - 80) > 0 ? 1 : 0;
     pips += 1;
 
+    pips += guarenteedPips;
+
     return pips;
   }
 
-  calculateMinPips(type: LeaderType, tradition: number, militarySkill: number): number {
+  calculateMinPips(type: LeaderType, tradition: number, militarySkill: number, guarenteedPips: number): number {
 
     tradition = this.modifyTradition(type, tradition, militarySkill);
 
     let pips = 1 + Math.floor(tradition / 20);
     pips += 100 <= tradition ? 1 : 0;
+
+    pips += guarenteedPips;
 
     return pips;
   }

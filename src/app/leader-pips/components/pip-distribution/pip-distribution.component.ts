@@ -1,3 +1,4 @@
+import { PipBonus } from './../../models/pip-bonus';
 import { PipCalculatorService } from './../../services/pip-calculator.service';
 import { PipDistribution } from './../../models/pip-distribution';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
@@ -15,6 +16,9 @@ export class PipDistributionComponent implements OnInit, OnChanges  {
 
   @Input()
   leaderType: LeaderType;
+
+  @Input()
+  pipBonuses: PipBonus[];
 
   avgPipDistribution: PipDistribution;
   typeFilenamePrefix = 'Land';
@@ -34,7 +38,7 @@ export class PipDistributionComponent implements OnInit, OnChanges  {
 
     this.avgPipDistribution = this.pipCalculatorService.averagePipDistribution(
       this.avgTotalPips,
-      [],
+      (this.pipBonuses) ? this.pipBonuses : [],
       this.leaderType
     );
   }

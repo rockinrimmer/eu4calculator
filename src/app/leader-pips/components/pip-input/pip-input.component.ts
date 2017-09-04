@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LeaderType } from '../../models/leader-type';
 import { MdCheckboxChange } from '@angular/material/typings';
+import { PipBonusGroup } from '../../models/pip-bonus-group';
+
 
 @Component({
   selector: 'app-pip-input',
@@ -25,12 +27,12 @@ export class PipInputComponent implements OnInit {
                         LeaderType.Heir];
 
   pipBonuses: PipBonus[] = [
-    new PipBonus('Offensive idea 3: Superior Firepower', PipType.Fire),
-    new PipBonus('Expansion-Quality: The Mining Act', PipType.Fire)
+    new PipBonus('Offensive idea 1: Bayonet Leaders', PipType.Shock, PipBonusGroup.Ideas),
+    new PipBonus('Offensive idea 3: Superior Firepower', PipType.Fire, PipBonusGroup.Ideas),
+    new PipBonus('Expansion-Quality: The Mining Act', PipType.Fire, PipBonusGroup.Policy)
   ];
-
-
   selectedPipBonuses: PipBonus[] = [];
+  pipBonusGroup = PipBonusGroup;
 
   @Output()
   avgTotalPips = new EventEmitter<number>();
@@ -71,7 +73,6 @@ export class PipInputComponent implements OnInit {
 
   emitData(form) {
     console.log(form);
-    console.log(this.selectedPipBonuses.length);
     this.avgTotalPips.emit(this.pipCalculatorService.calculatePips(
       form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
     this.leaderType.emit(form.selectedLeaderType);
@@ -83,11 +84,12 @@ export class PipInputComponent implements OnInit {
   }
 
   addPipBonus(event: MdCheckboxChange ) {
-    console.log(event);
     if (event.checked) {
-      this.selectedPipBonuses.push(this.pipBonuses[event.source.value]);
+      this.selectedPipBonuses.push(this.pipBonuses.find(item => item.name === event.source.value));
     } else {
-      this.selectedPipBonuses = this.selectedPipBonuses.filter(item => item.name !== this.pipBonuses[event.source.value].name);
+      this.selectedPipBonuses = this.selectedPipBonuses.filter(item => {
+        return item.name !== this.pipBonuses.find(findItem => findItem.name === event.source.value).name;
+      });
     }
 
     this.emitData(this.traditionForm.getRawValue());

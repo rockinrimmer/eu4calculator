@@ -1,8 +1,10 @@
+import { SharedModule } from './../shared/shared.module';
 import { PipInputComponent } from './components/pip-input/pip-input.component';
 import { PipOutputComponent } from './components/pip-output/pip-output.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule, MdTooltipModule, MdCheckboxModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule,
+  MdTooltipModule, MdCheckboxModule, MdTabsModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeaderPipsRouting } from './leader-pips.routing';
 import { PipCalculatorService } from './services/pip-calculator.service';
@@ -14,6 +16,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     LeaderPipsRouting,
     ReactiveFormsModule,
     MdButtonModule,
@@ -22,6 +25,7 @@ import { CommonModule } from '@angular/common';
     MdCardModule,
     MdTooltipModule,
     MdCheckboxModule,
+    MdTabsModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

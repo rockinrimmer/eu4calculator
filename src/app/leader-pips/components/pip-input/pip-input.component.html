@@ -30,9 +30,18 @@
       <h3>
         Guarenteed Pips: {{selectedPipBonuses.length}}
       </h3>
-      <div *ngFor="let bonus of pipBonuses; let i = index">
-        <md-checkbox [value]="i" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
-      </div>
+      <md-tab-group>
+        <md-tab label="Ideas">
+          <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Ideas:'bonusGroup' ; let i = index">
+            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+          </div>
+        </md-tab>
+        <md-tab label="Policies">
+          <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Policy:'bonusGroup' ; let i = index">
+            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+          </div>
+        </md-tab>
+      </md-tab-group>
     </form>
     <p>
       Form Status: {{traditionForm.status}}

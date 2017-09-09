@@ -1,10 +1,11 @@
+import { NAVAL_LEADERS } from './../../models/leader-type';
 import {PipType} from '../../models/pip-type';
-import { PipBonus } from './../../models/pip-bonus';
+import { PipBonus, PIP_BONUSES } from './../../models/pip-bonus';
 import { PipDistribution } from './../../models/pip-distribution';
 import { PipCalculatorService } from './../../services/pip-calculator.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { LeaderType } from '../../models/leader-type';
+import { LeaderType, LAND_LEADERS } from '../../models/leader-type';
 import { MdCheckboxChange } from '@angular/material/typings';
 import { PipBonusGroup } from '../../models/pip-bonus-group';
 
@@ -26,11 +27,7 @@ export class PipInputComponent implements OnInit {
                         LeaderType.Ruler,
                         LeaderType.Heir];
 
-  pipBonuses: PipBonus[] = [
-    new PipBonus('Offensive idea 1: Bayonet Leaders', PipType.Shock, PipBonusGroup.Ideas),
-    new PipBonus('Offensive idea 3: Superior Firepower', PipType.Fire, PipBonusGroup.Ideas),
-    new PipBonus('Expansion-Quality: The Mining Act', PipType.Fire, PipBonusGroup.Policy)
-  ];
+  pipBonuses = PIP_BONUSES;
   selectedPipBonuses: PipBonus[] = [];
   pipBonusGroup = PipBonusGroup;
 
@@ -60,9 +57,9 @@ export class PipInputComponent implements OnInit {
   ngOnInit() {
 
     this.traditionForm.valueChanges.subscribe(form => {
-      if ([LeaderType.General, LeaderType.Conquistador, LeaderType.Ruler, LeaderType.Heir].includes(form.selectedLeaderType)) {
+      if (LAND_LEADERS.includes(form.selectedLeaderType)) {
         this.traditionName = 'Army Tradition';
-      } else if ([LeaderType.Admiral, LeaderType.Explorer].includes(form.selectedLeaderType)) {
+      } else if (NAVAL_LEADERS.includes(form.selectedLeaderType)) {
         this.traditionName = 'Navy Tradition';
       }
 
@@ -73,22 +70,25 @@ export class PipInputComponent implements OnInit {
 
   emitData(form) {
     console.log(form);
+
+    const numberPipBonuses = this.selectedPipBonuses.filter(bonus => bonus.leaderTypes.includes(form.selectedLeaderType)).length;
+
     this.avgTotalPips.emit(this.pipCalculatorService.calculatePips(
-      form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
+      form.selectedLeaderType, form.tradition, form.militarySkill, numberPipBonuses));
     this.leaderType.emit(form.selectedLeaderType);
     this.minPips.emit(this.pipCalculatorService.calculateMinPips(
-      form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
-    this.maxPips.emit(this.pipCalculatorService.calculateMaxPips
-      (form.selectedLeaderType, form.tradition, form.militarySkill, this.selectedPipBonuses.length));
+      form.selectedLeaderType, form.tradition, form.militarySkill, numberPipBonuses));
+    this.maxPips.emit(this.pipCalculatorService.calculateMaxPips(
+      form.selectedLeaderType, form.tradition, form.militarySkill, numberPipBonuses));
     this.pipBonusesOutput.emit(this.selectedPipBonuses);
   }
 
   addPipBonus(event: MdCheckboxChange ) {
     if (event.checked) {
-      this.selectedPipBonuses.push(this.pipBonuses.find(item => item.name === event.source.value));
+      this.selectedPipBonuses.push(PIP_BONUSES.find(item => item.name === event.source.value));
     } else {
       this.selectedPipBonuses = this.selectedPipBonuses.filter(item => {
-        return item.name !== this.pipBonuses.find(findItem => findItem.name === event.source.value).name;
+        return item.name !== PIP_BONUSES.find(findItem => findItem.name === event.source.value).name;
       });
     }
 

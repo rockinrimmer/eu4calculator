@@ -1,3 +1,4 @@
+import { NAVAL_LEADERS } from './../../models/leader-type';
 import { PipBonus } from './../../models/pip-bonus';
 import { PipCalculatorService } from './../../services/pip-calculator.service';
 import { PipDistribution } from './../../models/pip-distribution';
@@ -30,7 +31,7 @@ export class PipDistributionComponent implements OnInit, OnChanges  {
   }
 
   ngOnChanges(): void {
-    if ([LeaderType.Admiral, LeaderType.Explorer].includes(this.leaderType)) {
+    if (NAVAL_LEADERS.includes(this.leaderType)) {
       this.typeFilenamePrefix = 'Naval';
     } else {
       this.typeFilenamePrefix = 'Land';

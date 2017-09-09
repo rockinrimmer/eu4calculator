@@ -99,25 +99,28 @@ export class PipCalculatorService {
       pipDistribution.maneuver++;
       pipDistribution.siege++;
     }
+    // console.log(pipBonuses);
 
-    pipBonuses.forEach(bonus => {
-      switch (bonus.pipType) {
-        case PipType.Fire:
-          pipDistribution.fire++;
-          break;
-        case PipType.Shock:
-          pipDistribution.shock++;
-          break;
-        case PipType.Maneuver:
-          pipDistribution.maneuver++;
-          break;
-        case PipType.Siege:
-          pipDistribution.siege++;
-          break;
-        default:
-          break;
+    pipBonuses.filter(bonus => bonus.leaderTypes.includes(leaderType))
+      .forEach(bonus => {
+        switch (bonus.pipType) {
+          case PipType.Fire:
+            pipDistribution.fire++;
+            break;
+          case PipType.Shock:
+            pipDistribution.shock++;
+            break;
+          case PipType.Maneuver:
+            pipDistribution.maneuver++;
+            break;
+          case PipType.Siege:
+            pipDistribution.siege++;
+            break;
+          default:
+            break;
+        }
       }
-    });
+    );
 
     while (pips > 0) {
       const random = this.getRandomInt(0, 9);

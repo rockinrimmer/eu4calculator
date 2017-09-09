@@ -48,7 +48,7 @@ export class PipInputComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private pipCalculatorService: PipCalculatorService) {
     this.traditionForm = this.formBuilder.group({
-        tradition: [, Validators.max(100)],
+        tradition: [, [Validators.min(0), Validators.max(100), Validators.pattern('\\d+')]],
         selectedLeaderType: [0],
         militarySkill: [, [Validators.min(0), Validators.max(6)]]
       });
@@ -63,7 +63,9 @@ export class PipInputComponent implements OnInit {
         this.traditionName = 'Navy Tradition';
       }
 
-      this.emitData(form);
+      if (this.traditionForm.valid) {
+        this.emitData(form);
+      }
     });
 
   }

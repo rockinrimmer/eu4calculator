@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
-import { MdToolbarModule, MdButtonModule, MdMenuModule, MdCardModule } from '@angular/material';
+import { MdToolbarModule, MdButtonModule, MdMenuModule, MdCardModule, MdChipsModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -23,6 +23,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     MdButtonModule,
     MdMenuModule,
     MdCardModule,
+    MdChipsModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

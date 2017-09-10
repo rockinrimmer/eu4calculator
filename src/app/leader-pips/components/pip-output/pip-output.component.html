@@ -5,14 +5,10 @@
     <md-card-subtitle>Results from the Leader Pip Calculator</md-card-subtitle>
   </md-card-header>
   <md-card-content>
-    <h3>Stats</h3>
+    <h3>Pips</h3>
     <p>
-      Average Pips: <strong>{{avgTotalPips | number : '1.0-1'}}</strong>
-    </p>
-    <p>
-      Minimum Pips: <strong>{{minPips | number : '1.0-1'}}</strong>
-    </p>
-    <p>
+      Average Pips: <strong>{{avgTotalPips | number : '1.0-1'}}</strong><br/>
+      Minimum Pips: <strong>{{minPips | number : '1.0-1'}}</strong><br/>
       Maximum Pips: <strong>{{maxPips | number : '1.0-1'}}</strong>
     </p>
     <app-pip-distribution

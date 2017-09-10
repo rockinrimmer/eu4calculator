@@ -50,7 +50,7 @@ export class PipInputComponent implements OnInit {
     this.traditionForm = this.formBuilder.group({
         tradition: [, [Validators.min(0), Validators.max(100), Validators.pattern('\\d+')]],
         selectedLeaderType: [0],
-        militarySkill: [, [Validators.min(0), Validators.max(6)]]
+        militarySkill: [, [Validators.min(0), Validators.max(6), Validators.pattern('\\d+')]]
       });
   }
 
@@ -71,8 +71,6 @@ export class PipInputComponent implements OnInit {
   }
 
   emitData(form) {
-    console.log(form);
-
     const numberPipBonuses = this.selectedPipBonuses.filter(bonus => bonus.leaderTypes.includes(form.selectedLeaderType)).length;
 
     this.avgTotalPips.emit(this.pipCalculatorService.calculatePips(

@@ -9,7 +9,6 @@ before_script:
 - npm install -g @angular/cli
 script:
 - ng build --prod
-- ls -l
 - chmod +x deploy.sh
 env:
   global:

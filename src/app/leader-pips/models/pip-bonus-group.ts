@@ -1,4 +1,6 @@
 export enum PipBonusGroup {
   Policy,
-  Ideas
+  Ideas,
+  Bonuses,
+  Country
 }

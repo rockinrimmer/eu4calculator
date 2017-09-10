@@ -1,11 +1,10 @@
-import { NAVAL_LEADERS } from './../../models/leader-type';
 import {PipType} from '../../models/pip-type';
 import { PipBonus, PIP_BONUSES } from './../../models/pip-bonus';
 import { PipDistribution } from './../../models/pip-distribution';
 import { PipCalculatorService } from './../../services/pip-calculator.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { LeaderType, LAND_LEADERS } from '../../models/leader-type';
+import { LeaderType, NAVAL_LEADERS, LAND_LEADERS } from '../../models/leader-type';
 import { MdCheckboxChange } from '@angular/material/typings';
 import { PipBonusGroup } from '../../models/pip-bonus-group';
 
@@ -30,6 +29,8 @@ export class PipInputComponent implements OnInit {
   pipBonuses = PIP_BONUSES;
   selectedPipBonuses: PipBonus[] = [];
   pipBonusGroup = PipBonusGroup;
+  guaranteedPips = 0;
+  previousSelectedLeaderGroup = LAND_LEADERS;
 
   @Output()
   avgTotalPips = new EventEmitter<number>();
@@ -57,10 +58,21 @@ export class PipInputComponent implements OnInit {
   ngOnInit() {
 
     this.traditionForm.valueChanges.subscribe(form => {
+
       if (LAND_LEADERS.includes(form.selectedLeaderType)) {
         this.traditionName = 'Army Tradition';
+        if (this.previousSelectedLeaderGroup === NAVAL_LEADERS) {
+          this.selectedPipBonuses = [];
+          this.guaranteedPips = 0;
+          this.previousSelectedLeaderGroup = LAND_LEADERS;
+        }
       } else if (NAVAL_LEADERS.includes(form.selectedLeaderType)) {
         this.traditionName = 'Navy Tradition';
+        if (this.previousSelectedLeaderGroup === LAND_LEADERS) {
+          this.selectedPipBonuses = [];
+          this.guaranteedPips = 0;
+          this.previousSelectedLeaderGroup = NAVAL_LEADERS;
+        }
       }
 
       if (this.traditionForm.valid) {
@@ -71,15 +83,13 @@ export class PipInputComponent implements OnInit {
   }
 
   emitData(form) {
-    const numberPipBonuses = this.selectedPipBonuses.filter(bonus => bonus.leaderTypes.includes(form.selectedLeaderType)).length;
-
     this.avgTotalPips.emit(this.pipCalculatorService.calculatePips(
-      form.selectedLeaderType, form.tradition, form.militarySkill, numberPipBonuses));
+      form.selectedLeaderType, form.tradition, form.militarySkill, this.guaranteedPips));
     this.leaderType.emit(form.selectedLeaderType);
     this.minPips.emit(this.pipCalculatorService.calculateMinPips(
-      form.selectedLeaderType, form.tradition, form.militarySkill, numberPipBonuses));
+      form.selectedLeaderType, form.tradition, form.militarySkill, this.guaranteedPips));
     this.maxPips.emit(this.pipCalculatorService.calculateMaxPips(
-      form.selectedLeaderType, form.tradition, form.militarySkill, numberPipBonuses));
+      form.selectedLeaderType, form.tradition, form.militarySkill, this.guaranteedPips));
     this.pipBonusesOutput.emit(this.selectedPipBonuses);
   }
 
@@ -91,8 +101,14 @@ export class PipInputComponent implements OnInit {
         return item.name !== PIP_BONUSES.find(findItem => findItem.name === event.source.value).name;
       });
     }
-
+    this.guaranteedPips = this.calculateGuaranteedPips(this.traditionForm.getRawValue());
     this.emitData(this.traditionForm.getRawValue());
+  }
+
+  calculateGuaranteedPips(form): number {
+    return this.selectedPipBonuses.filter(bonus => bonus.leaderTypes.includes(form.selectedLeaderType))
+      .map(bonus => bonus.bonusAmount)
+      .reduce((a, b) => a + b, 0);
   }
 
 }

@@ -7,8 +7,8 @@
   </p>
 </section>
 <section class="container">
-  <div fxLayout="row" fxLayoutAlign="center" class="content">
-    <div class="blocks">
+  <div fxFlex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" class="content">
+    <div fxflex class="blocks">
       <app-pip-output
         [avgTotalPips]="avgTotalPips"
         [minPips]="minPips"
@@ -17,7 +17,7 @@
         [pipBonuses]="pipBonuses"
       ></app-pip-output>
     </div>
-    <div class="blocks">
+    <div fxflex class="blocks">
       <app-pip-input
         (avgTotalPips)="setAvgTotalPips($event)"
         (leaderType)="setLeaderType($event)"
@@ -28,7 +28,3 @@
     </div>
   </div>
 </section>
-
-
-
-

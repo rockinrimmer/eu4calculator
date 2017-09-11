@@ -7,6 +7,22 @@
   margin: 5px;
 }
 
-.card .mat-card-content p {
-  margin-top: 10px;
+/deep/ .card {
+  min-width: 400px;
+
+  .mat-card-content p {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 600px) {
+  /deep/ .card{
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 1085px) {
+  /deep/ .card{
+    min-width: 300px;
+  }
 }

@@ -1,9 +1,13 @@
 <header>
   <nav>
     <md-toolbar color="primary">
-      <a md-button routerLink="/"><h1>EU4 Calculator</h1></a>
-      <a md-button routerLink="/leader-pip-calculator">Leader Pip Calculator</a>
-      <md-chip-list id="coming-soon">
+      <button md-button (click)="sidenav.toggle()" fxHide="false" fxHide.gt-xs>
+        <md-icon class="material-icons">menu</md-icon>
+      </button>
+      <span  fxHide="false" fxHide.gt-xs class="fill-space"></span>
+      <a md-button routerLink="/" (click)="sidenav.close()"><h1>EU4 Calculator</h1></a>
+      <a md-button routerLink="/leader-pip-calculator" fxHide="true" fxShow.gt-xs>Leader Pip Calculator</a>
+      <md-chip-list fxHide="true" fxShow.gt-xs>
         <md-chip color="accent" selected="true" >More coming soon!</md-chip>
       </md-chip-list>
       <span class="fill-space"></span>

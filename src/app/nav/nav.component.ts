@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.less']
 })
 export class NavComponent implements OnInit {
+
+  @Input()
+  sidenav;
 
   constructor() { }
 

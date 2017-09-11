@@ -41,6 +41,11 @@
             <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
           </div>
         </md-tab>
+        <md-tab label="Bonuses">
+          <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Bonuses:'bonusGroup' | filterListAttributeList:traditionForm.get('selectedLeaderType').value:'leaderTypes' ; let i = index">
+            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+          </div>
+        </md-tab>
         <md-tab label="Country Specific">
           <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Country:'bonusGroup' | filterListAttributeList:traditionForm.get('selectedLeaderType').value:'leaderTypes' ; let i = index">
             <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>

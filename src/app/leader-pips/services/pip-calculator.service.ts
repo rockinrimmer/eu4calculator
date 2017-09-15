@@ -1,8 +1,7 @@
-import { LAND_LEADERS, NAVAL_LEADERS } from './../models/leader-type';
 import { PipDistribution } from './../models/pip-distribution';
 import { PipBonus } from './../models/pip-bonus';
 import { Injectable } from '@angular/core';
-import { LeaderType } from '../models/leader-type';
+import { LeaderType, LAND_LEADERS, NAVAL_LEADERS } from '../models/leader-type';
 import { PipType } from '../models/pip-type';
 
 @Injectable()

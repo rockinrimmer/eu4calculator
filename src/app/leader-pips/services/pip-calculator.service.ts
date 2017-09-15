@@ -1,3 +1,4 @@
+import { LAND_LEADERS, NAVAL_LEADERS } from './../models/leader-type';
 import { PipDistribution } from './../models/pip-distribution';
 import { PipBonus } from './../models/pip-bonus';
 import { Injectable } from '@angular/core';
@@ -9,13 +10,10 @@ export class PipCalculatorService {
 
   constructor() { }
 
+  private readonly maxLandPips = 24;
+  private readonly maxNavalPips = 18;
+  private readonly maxPipsPerCategory = 6;
   private iterations = 10000;
-  private landLeaders = [
-    LeaderType.General,
-    LeaderType.Conquistador,
-    LeaderType.Ruler,
-    LeaderType.Heir
-  ];
 
   calculatePips(type: LeaderType, tradition: number, militarySkill: number, guarenteedPips: number): number {
 
@@ -33,6 +31,14 @@ export class PipCalculatorService {
       pips += this.getRandomInt(0, 1) === 1 ? 1 : 0;
 
       pips += guarenteedPips;
+
+      if (pips > this.maxLandPips && LAND_LEADERS.includes(type)) {
+        pips = this.maxLandPips;
+      }
+
+      if (pips > this.maxNavalPips && NAVAL_LEADERS.includes(type)) {
+        pips = this.maxNavalPips;
+      }
 
       sum += pips;
     }
@@ -54,6 +60,14 @@ export class PipCalculatorService {
 
     pips += guarenteedPips;
 
+    if (pips > this.maxLandPips && LAND_LEADERS.includes(type)) {
+      return this.maxLandPips;
+    }
+
+    if (pips > this.maxNavalPips && NAVAL_LEADERS.includes(type)) {
+      return this.maxNavalPips;
+    }
+
     return pips;
   }
 
@@ -65,6 +79,14 @@ export class PipCalculatorService {
     pips += 100 <= tradition ? 1 : 0;
 
     pips += guarenteedPips;
+
+    if (pips > this.maxLandPips && LAND_LEADERS.includes(type)) {
+      return this.maxLandPips;
+    }
+
+    if (pips > this.maxNavalPips && NAVAL_LEADERS.includes(type)) {
+      return this.maxNavalPips;
+    }
 
     return pips;
   }
@@ -99,22 +121,29 @@ export class PipCalculatorService {
       pipDistribution.maneuver++;
       pipDistribution.siege++;
     }
-    // console.log(pipBonuses);
 
     pipBonuses.filter(bonus => bonus.leaderTypes.includes(leaderType))
       .forEach(bonus => {
         switch (bonus.pipType) {
           case PipType.Fire:
-            pipDistribution.fire++;
+            if (pipDistribution.fire < this.maxPipsPerCategory) {
+              pipDistribution.fire++;
+            }
             break;
           case PipType.Shock:
-            pipDistribution.shock++;
+            if (pipDistribution.shock < this.maxPipsPerCategory) {
+              pipDistribution.shock++;
+              }
             break;
           case PipType.Maneuver:
-            pipDistribution.maneuver++;
+          if (pipDistribution.maneuver < this.maxPipsPerCategory) {
+              pipDistribution.maneuver++;
+            }
             break;
           case PipType.Siege:
-            pipDistribution.siege++;
+            if (pipDistribution.siege < this.maxPipsPerCategory) {
+              pipDistribution.siege++;
+            }
             break;
           default:
             break;
@@ -125,7 +154,7 @@ export class PipCalculatorService {
     while (pips > 0) {
       const random = this.getRandomInt(0, 9);
 
-      if (random === 0 && this.landLeaders.includes(leaderType) && pipDistribution.siege < 6) {
+      if (random === 0 && LAND_LEADERS.includes(leaderType) && pipDistribution.siege < 6) {
         pipDistribution.siege++;
       } else if (random < 4 && pipDistribution.shock < 6) {
         pipDistribution.shock++;

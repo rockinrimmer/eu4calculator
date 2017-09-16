@@ -1,6 +1,17 @@
+import { PipCalculatorComponent } from './../pip-calculator/pip-calculator.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule,
+   MdTooltipModule, MdCheckboxModule, MdTabsModule } from '@angular/material';
+import { LeaderPipsRouting } from './../../leader-pips.routing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../../shared/shared.module';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PipDistributionComponent } from './../pip-distribution/pip-distribution.component';
+import { PipInputComponent } from './../pip-input/pip-input.component';
+import { PipOutputComponent } from './../pip-output/pip-output.component';
+import {PipCalculatorService} from '../../services/pip-calculator.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PipInputComponent } from './pip-input.component';
 
 describe('PipInputComponent', () => {
   let component: PipInputComponent;
@@ -8,7 +19,28 @@ describe('PipInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PipInputComponent ]
+      imports: [
+        CommonModule,
+        SharedModule,
+        LeaderPipsRouting,
+        ReactiveFormsModule,
+        MdButtonModule,
+        MdInputModule,
+        MdRadioModule,
+        MdCardModule,
+        MdTooltipModule,
+        MdCheckboxModule,
+        MdTabsModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule
+      ],
+      declarations: [
+        PipCalculatorComponent,
+        PipDistributionComponent,
+        PipInputComponent,
+        PipOutputComponent
+      ],
+      providers: [PipCalculatorService, {provide: APP_BASE_HREF, useValue : '/' }],
     })
     .compileComponents();
   }));

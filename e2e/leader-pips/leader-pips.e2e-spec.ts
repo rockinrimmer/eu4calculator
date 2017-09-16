@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage } from './leader-pips.po';
 
 describe('eu4calculator App', () => {
   let page: AppPage;
@@ -9,6 +9,6 @@ describe('eu4calculator App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to EU4 Calculator!');
+    expect(page.getParagraphText()).toEqual('Leader Pip Calculator');
   });
 });

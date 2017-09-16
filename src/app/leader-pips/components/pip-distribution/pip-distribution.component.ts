@@ -26,8 +26,12 @@ export class PipDistributionComponent implements OnInit, OnChanges  {
 
   constructor(private pipCalculatorService: PipCalculatorService) { }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+    this.avgPipDistribution = this.pipCalculatorService.averagePipDistribution(
+      this.avgTotalPips,
+      (this.pipBonuses) ? this.pipBonuses : [],
+      this.leaderType
+    );
   }
 
   ngOnChanges(): void {

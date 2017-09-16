@@ -1,6 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HomepageComponent } from './homepage.component';
+import { NavComponent } from '../nav/nav.component';
+import { HomepageComponent } from '../homepage/homepage.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppRouting } from '../app.routing';
+import { LeaderPipsModule } from '../leader-pips/leader-pips.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { AppComponent } from '../app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { MdToolbarModule, MdButtonModule, MdMenuModule, MdCardModule, MdChipsModule, MdSidenavModule } from '@angular/material';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('HomepageComponent', () => {
   let component: HomepageComponent;
@@ -8,7 +16,25 @@ describe('HomepageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomepageComponent ]
+      imports: [
+        AppRouting,
+        LeaderPipsModule,
+        BrowserModule,
+        MdToolbarModule,
+        MdButtonModule,
+        MdMenuModule,
+        MdCardModule,
+        MdChipsModule,
+        MdSidenavModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule
+      ],
+      declarations: [
+        AppComponent,
+        NavComponent,
+        HomepageComponent
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     })
     .compileComponents();
   }));

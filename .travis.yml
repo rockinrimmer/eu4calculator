@@ -12,7 +12,7 @@ before_install:
 before_script:
 - npm install -g @angular/cli
 script:
-- ng test
+- ng test --watch=false
 - ng e2e
 - ng build --prod
 - chmod +x deploy.sh

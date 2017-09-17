@@ -1,0 +1,45 @@
+<md-card class="card">
+    <md-card-header>
+      <md-icon md-card-avatar class="fa fa-wrench fa-3x"></md-icon>
+      <md-card-title>Options</md-card-title>
+    <md-card-subtitle>Change these to your current in-game values</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <form [formGroup]="institutionForm">
+        <p>
+          <md-form-field>
+            <input mdInput placeholder="Province Development" type="text" formControlName="provinceDevelopment" />
+          </md-form-field>
+        </p>
+
+        <p>
+          <md-form-field>
+            <input mdInput placeholder="Total Development" type="text" formControlName="totalDevelopment" />
+          </md-form-field>
+        </p>
+
+        <p>
+          <md-select placeholder="Climate" name="climate">
+            <md-option *ngFor="let climate of CLIMATE" [value]="climate">
+              {{climate.name}}
+            </md-option>
+          </md-select>
+
+          <md-select placeholder="Terrain" name="terrain">
+            <md-option *ngFor="let terrain of TERRAIN" [value]="terrain">
+              {{terrain.name}}
+            </md-option>
+          </md-select>
+        </p>
+
+
+        <md-tab-group>
+          <md-tab label="Province">
+            <div *ngFor="let bonus of PROVINCE">
+              <md-checkbox [value]="bonus.name" >{{bonus.name}}</md-checkbox>
+            </div>
+          </md-tab>
+        </md-tab-group>
+      </form>
+    </md-card-content>
+  </md-card>

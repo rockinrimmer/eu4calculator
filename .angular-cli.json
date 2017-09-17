@@ -55,6 +55,7 @@
   },
   "defaults": {
     "styleExt": "less",
-    "component": {}
+    "component": {
+    }
   }
 }

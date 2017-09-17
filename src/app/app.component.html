@@ -2,7 +2,10 @@
 
 <md-sidenav-container class="sidenav-container">
   <md-sidenav #sidenav mode="side" opened="false" class="sidenav">
-    <a md-button (click)="sidenav.close()" routerLink="/leader-pip-calculator">Leader Pip Calculator</a>
+    <ul>
+      <li><a md-button (click)="sidenav.close()" routerLink="/leader-pip-calculator">Leader Pip Calculator</a></li>
+      <li><a md-button (click)="sidenav.close()" routerLink="/institution-spread">Institution Spread</a></li>
+    </ul>
   </md-sidenav>
 
   <div [class.mat-drawer-shown]="sidenav.opened" (click)="sidenav.close()" class="mat-drawer-backdrop"></div>

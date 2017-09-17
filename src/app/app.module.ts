@@ -1,3 +1,4 @@
+import { InstitutionSpreadModule } from './institution-spread/institution-spread.module';
 import { AppRouting } from './app.routing';
 import { LeaderPipsModule } from './leader-pips/leader-pips.module';
 
@@ -18,6 +19,7 @@ import { HomepageComponent } from './homepage/homepage.component';
   imports: [
     AppRouting,
     LeaderPipsModule,
+    InstitutionSpreadModule,
     BrowserModule,
     MdToolbarModule,
     MdButtonModule,

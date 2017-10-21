@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from '../app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { MdToolbarModule, MdButtonModule, MdMenuModule, MdCardModule, MdChipsModule, MdSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatCardModule, MatChipsModule, MatSidenavModule } from '@angular/material';
 import { APP_BASE_HREF } from '@angular/common';
 
 describe('HomepageComponent', () => {
@@ -20,12 +20,12 @@ describe('HomepageComponent', () => {
         AppRouting,
         LeaderPipsModule,
         BrowserModule,
-        MdToolbarModule,
-        MdButtonModule,
-        MdMenuModule,
-        MdCardModule,
-        MdChipsModule,
-        MdSidenavModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatChipsModule,
+        MatSidenavModule,
         FlexLayoutModule,
         BrowserAnimationsModule
       ],

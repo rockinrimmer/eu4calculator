@@ -1,12 +1,12 @@
 <app-nav [sidenav]="sidenav"></app-nav>
 
-<md-sidenav-container class="sidenav-container">
-  <md-sidenav #sidenav mode="side" opened="false" class="sidenav">
-    <a md-button (click)="sidenav.close()" routerLink="/leader-pip-calculator">Leader Pip Calculator</a>
-  </md-sidenav>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened="false" class="sidenav">
+    <a mat-button (click)="sidenav.close()" routerLink="/leader-pip-calculator">Leader Pip Calculator</a>
+  </mat-sidenav>
 
   <div [class.mat-drawer-shown]="sidenav.opened" (click)="sidenav.close()" class="mat-drawer-backdrop"></div>
   <main [class.drawer-shown]="sidenav.opened">
     <router-outlet></router-outlet>
   </main>
-</md-sidenav-container>
+</mat-sidenav-container>

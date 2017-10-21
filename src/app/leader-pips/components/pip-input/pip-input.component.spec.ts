@@ -1,7 +1,7 @@
 import { PipCalculatorComponent } from './../pip-calculator/pip-calculator.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule,
-   MdTooltipModule, MdCheckboxModule, MdTabsModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatRadioModule, MatCardModule,
+   MatTooltipModule, MatCheckboxModule, MatTabsModule } from '@angular/material';
 import { LeaderPipsRouting } from './../../leader-pips.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './../../../shared/shared.module';
@@ -24,13 +24,13 @@ describe('PipInputComponent', () => {
         SharedModule,
         LeaderPipsRouting,
         ReactiveFormsModule,
-        MdButtonModule,
-        MdInputModule,
-        MdRadioModule,
-        MdCardModule,
-        MdTooltipModule,
-        MdCheckboxModule,
-        MdTabsModule,
+        MatButtonModule,
+        MatInputModule,
+        MatRadioModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatCheckboxModule,
+        MatTabsModule,
         FlexLayoutModule,
         BrowserAnimationsModule
       ],

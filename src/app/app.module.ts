@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
-import { MdToolbarModule, MdButtonModule, MdMenuModule, MdCardModule, MdChipsModule, MdSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatCardModule, MatChipsModule, MatSidenavModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -19,12 +19,12 @@ import { HomepageComponent } from './homepage/homepage.component';
     AppRouting,
     LeaderPipsModule,
     BrowserModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdMenuModule,
-    MdCardModule,
-    MdChipsModule,
-    MdSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatChipsModule,
+    MatSidenavModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

@@ -1,22 +1,22 @@
 <header>
   <nav>
-    <md-toolbar color="primary">
-      <button md-button (click)="sidenav.toggle()" fxHide="false" fxHide.gt-xs>
-        <md-icon class="material-icons">menu</md-icon>
+    <mat-toolbar color="primary">
+      <button mat-button (click)="sidenav.toggle()" fxHide="false" fxHide.gt-xs>
+        <mat-icon class="material-icons">menu</mat-icon>
       </button>
       <span  fxHide="false" fxHide.gt-xs class="fill-space"></span>
-      <a md-button routerLink="/" (click)="sidenav.close()"><h1>EU4 Calculator</h1></a>
-      <a md-button routerLink="/leader-pip-calculator" fxHide="true" fxShow.gt-xs>Leader Pip Calculator</a>
-      <md-chip-list fxHide="true" fxShow.gt-xs>
-        <md-chip color="accent" selected="true" >More coming soon!</md-chip>
-      </md-chip-list>
+      <a mat-button routerLink="/" (click)="sidenav.close()"><h1>EU4 Calculator</h1></a>
+      <a mat-button routerLink="/leader-pip-calculator" fxHide="true" fxShow.gt-xs>Leader Pip Calculator</a>
+      <mat-chip-list fxHide="true" fxShow.gt-xs>
+        <mat-chip color="accent" selected="true" >More coming soon!</mat-chip>
+      </mat-chip-list>
       <span class="fill-space"></span>
 
       <a href="https://github.com/rockinrimmer/eu4calculator">
-        <button md-raised-button color="accent">
-          <md-icon class="fa fa-github fa-2x"></md-icon> GitHub
+        <button mat-raised-button color="accent">
+          <mat-icon class="fa fa-github fa-2x"></mat-icon> GitHub
         </button>
       </a>
-    </md-toolbar>
+    </mat-toolbar>
   </nav>
 </header>

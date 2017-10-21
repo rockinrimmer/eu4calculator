@@ -3,8 +3,8 @@ import { PipInputComponent } from './components/pip-input/pip-input.component';
 import { PipOutputComponent } from './components/pip-output/pip-output.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdInputModule, MdRadioModule, MdCardModule,
-  MdTooltipModule, MdCheckboxModule, MdTabsModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatRadioModule, MatCardModule,
+  MatTooltipModule, MatCheckboxModule, MatTabsModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeaderPipsRouting } from './leader-pips.routing';
 import { PipCalculatorService } from './services/pip-calculator.service';
@@ -19,13 +19,13 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     LeaderPipsRouting,
     ReactiveFormsModule,
-    MdButtonModule,
-    MdInputModule,
-    MdRadioModule,
-    MdCardModule,
-    MdTooltipModule,
-    MdCheckboxModule,
-    MdTabsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatTabsModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

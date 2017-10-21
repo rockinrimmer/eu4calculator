@@ -1,57 +1,57 @@
-<md-card class="card">
-  <md-card-header>
-    <md-icon md-card-avatar class="fa fa-wrench fa-3x"></md-icon>
-    <md-card-title>Options</md-card-title>
-  <md-card-subtitle>Change these to your current in-game values</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-icon mat-card-avatar class="fa fa-wrench fa-3x"></mat-icon>
+    <mat-card-title>Options</mat-card-title>
+  <mat-card-subtitle>Change these to your current in-game values</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <form [formGroup]="traditionForm">
       <label for="typeButtons">Leader Type</label>
       <p>
-        <md-radio-group class="radio-group" formControlName="selectedLeaderType" id="typeButtons" >
-          <md-radio-button class="radio-button" *ngFor="let type of leaderTypes" [value]="type" labelPosition="before" >
-            <img src="/assets/{{typesEnum[type]}}.png" mdTooltip="{{typesEnum[type]}}" mdTooltipPosition="below"/>
-          </md-radio-button>
-        </md-radio-group>
+        <mat-radio-group class="radio-group" formControlName="selectedLeaderType" id="typeButtons" >
+          <mat-radio-button class="radio-button" *ngFor="let type of leaderTypes" [value]="type" labelPosition="before" >
+            <img src="/assets/{{typesEnum[type]}}.png" matTooltip="{{typesEnum[type]}}" matTooltipPosition="below"/>
+          </mat-radio-button>
+        </mat-radio-group>
       </p>
 
       <p>
-        <md-form-field>
-          <input mdInput placeholder="{{traditionName}}" type="text" formControlName="tradition" />
-        </md-form-field>
+        <mat-form-field>
+          <input matInput placeholder="{{traditionName}}" type="text" formControlName="tradition" />
+        </mat-form-field>
       </p>
 
       <p>
-        <md-form-field>
-          <input mdInput placeholder="Military Skill" type="text" formControlName="militarySkill" />
-        </md-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Military Skill" type="text" formControlName="militarySkill" />
+        </mat-form-field>
       </p>
 
       <h3>
         Guaranteed Pips: {{guaranteedPips}}
       </h3>
-      <md-tab-group>
-        <md-tab label="Ideas">
+      <mat-tab-group>
+        <mat-tab label="Ideas">
           <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Ideas:'bonusGroup' | filterListAttributeList:traditionForm.get('selectedLeaderType').value:'leaderTypes' ; let i = index">
-            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+            <mat-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</mat-checkbox>
           </div>
-        </md-tab>
-        <md-tab label="Policies">
+        </mat-tab>
+        <mat-tab label="Policies">
           <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Policy:'bonusGroup' | filterListAttributeList:traditionForm.get('selectedLeaderType').value:'leaderTypes' ; let i = index">
-            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+            <mat-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</mat-checkbox>
           </div>
-        </md-tab>
-        <md-tab label="Bonuses">
+        </mat-tab>
+        <mat-tab label="Bonuses">
           <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Bonuses:'bonusGroup' | filterListAttributeList:traditionForm.get('selectedLeaderType').value:'leaderTypes' ; let i = index">
-            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+            <mat-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</mat-checkbox>
           </div>
-        </md-tab>
-        <md-tab label="Country Specific">
+        </mat-tab>
+        <mat-tab label="Country Specific">
           <div *ngFor="let bonus of pipBonuses | filterList:pipBonusGroup.Country:'bonusGroup' | filterListAttributeList:traditionForm.get('selectedLeaderType').value:'leaderTypes' ; let i = index">
-            <md-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</md-checkbox>
+            <mat-checkbox [value]="bonus.name" (change)="addPipBonus($event)" >{{bonus.name}}</mat-checkbox>
           </div>
-        </md-tab>
-      </md-tab-group>
+        </mat-tab>
+      </mat-tab-group>
     </form>
-  </md-card-content>
-</md-card>
+  </mat-card-content>
+</mat-card>

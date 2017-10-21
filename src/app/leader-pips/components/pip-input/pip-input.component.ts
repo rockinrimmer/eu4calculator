@@ -5,7 +5,7 @@ import { PipCalculatorService } from './../../services/pip-calculator.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LeaderType, NAVAL_LEADERS, LAND_LEADERS } from '../../models/leader-type';
-import { MdCheckboxChange } from '@angular/material/typings';
+import { MatCheckboxChange } from '@angular/material/typings';
 import { PipBonusGroup } from '../../models/pip-bonus-group';
 
 
@@ -93,7 +93,7 @@ export class PipInputComponent implements OnInit {
     this.pipBonusesOutput.emit(this.selectedPipBonuses);
   }
 
-  addPipBonus(event: MdCheckboxChange ) {
+  addPipBonus(event: MatCheckboxChange ) {
     if (event.checked) {
       this.selectedPipBonuses.push(PIP_BONUSES.find(item => item.name === event.source.value));
     } else {

@@ -39,4 +39,13 @@ describe('PipCalculatorService', () => {
     expect(service.calculateMinPips(LeaderType.General, 100, 0, 100)).toEqual(24);
     expect(service.calculateMinPips(LeaderType.Admiral, 100, 0, 100)).toEqual(18);
   }));
+
+  it('should calculate max pips', inject([PipCalculatorService], (service: PipCalculatorService) => {
+    expect(service.calculateMaxPips(LeaderType.General, 0, 0, 0)).toEqual(7);
+    expect(service.calculateMaxPips(LeaderType.General, 100, 0, 0)).toEqual(17);
+    expect(service.calculateMaxPips(LeaderType.General, 100, 0, 1)).toEqual(18);
+    expect(service.calculateMaxPips(LeaderType.General, 100, 0, 100)).toEqual(24);
+    expect(service.calculateMaxPips(LeaderType.Admiral, 100, 0, 100)).toEqual(18);
+  }));
+
 });

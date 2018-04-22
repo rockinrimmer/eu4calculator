@@ -1,6 +1,10 @@
+dist: trusty
+sudo: required
 language: node_js
+addons:
+  chrome: stable
 node_js:
-- '7'
+  - '8'
 branches:
   only:
   - master
@@ -9,13 +13,14 @@ before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 before_script:
-- npm install -g @angular/cli
+  - npm install -g @angular/cli
 script:
-- ng test --watch=false
-- ng e2e
-- ng build --prod
-- chmod +x deploy.sh
+  - ng test --watch=false
+  - ng e2e
+  - ng build --prod
+  - chmod +x deploy.sh
 env:
   global:
   - secure: aJQrUzkliz3jF6gMzv00y/wo/wLEApjH0hpBh6EJUTWxajQSUVY0UyS6mmQz92cY+bByUcy1keASNM5y4L20yFta2Q6+jBc2Kx34cSJgBXDEBQ8kkY0VMicr/75Afuvh36rv8bMkCNgMm6JvH7tcEkxRo180DB6i6+tY+UzPXVtCircZct12Xb9+kvbZaS4X1vHSOkZrPwuNZYv1VbyGSPvPKgYHeugU+scf3VFrwn0FYxjlSsAbsuQqe5e+L5HQpHxVhwtTrcD8LdGlqzQFe/TZvzAeO7XGaba9JFxXk9m+r29QjWK631Ts0/BxmxRwphnneFT1aD0Dv3m2kroWmAKVualPjf92RQf3S6XAaxZpl6ECmyadcvNS0FCXB6yX0Kv13fzAAC3qtmlTKjqYjxqqQN8sJxx/Yv0k9U9PEBhBNMhYrfzlJ/8gKvUq9K50Pq4rpbd5qw5+QrDQwclYpKAumgSAASN6W4RGCm3Ug6Gv65sH2+KcbtaSXzouAWUj3jkEg/jOqDQf2ngn3MK7zypPGeD1vebnEp6YlH5CpiNBz9G0bkua4MlOto5llkIKiHSEt0APQm17U9twvioFx9qJwWR74PMGvsdjxcI24eux/of6dFmkoc302NilFRqyq0VgLYrry9F6lhfnjfH/0rDBNX6nLr+S/ckCm7PoRFo=

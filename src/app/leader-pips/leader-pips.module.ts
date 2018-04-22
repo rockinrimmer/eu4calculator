@@ -4,14 +4,14 @@ import { PipOutputComponent } from './components/pip-output/pip-output.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule, MatInputModule, MatRadioModule, MatCardModule,
-  MatTooltipModule, MatCheckboxModule, MatTabsModule } from '@angular/material';
+  MatTooltipModule, MatCheckboxModule, MatTabsModule, MatIconModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeaderPipsRouting } from './leader-pips.routing';
 import { PipCalculatorService } from './services/pip-calculator.service';
 import { PipDistributionComponent } from './components/pip-distribution/pip-distribution.component';
 import { PipCalculatorComponent } from './components/pip-calculator/pip-calculator.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -26,6 +26,7 @@ import { CommonModule } from '@angular/common';
     MatTooltipModule,
     MatCheckboxModule,
     MatTabsModule,
+    MatIconModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],
@@ -36,6 +37,6 @@ import { CommonModule } from '@angular/common';
     PipOutputComponent
   ],
   exports: [PipCalculatorComponent],
-  providers: [PipCalculatorService]
+  providers: [PipCalculatorService, DecimalPipe]
 })
 export class LeaderPipsModule { }

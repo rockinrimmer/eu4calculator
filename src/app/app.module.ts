@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
-import { MatToolbarModule, MatButtonModule, MatMenuModule, MatCardModule, MatChipsModule, MatSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatCardModule, MatChipsModule, MatSidenavModule, MatIconModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -25,6 +25,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     MatCardModule,
     MatChipsModule,
     MatSidenavModule,
+    MatIconModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

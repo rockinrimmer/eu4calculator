@@ -26,7 +26,7 @@
     "@angular/material": "~5.2.5",
     "@angular/platform-browser": "~5.2.10",
     "@angular/platform-browser-dynamic": "~5.2.10",
-    "@angular/router": "~5.2.10",
+    "@angular/router": "~6.0.0",
     "@material/layout-grid": "^0.34.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.5",

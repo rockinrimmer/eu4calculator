@@ -52,6 +52,7 @@ Thumbs.db
 /tmp
 /app/**/*.js
 /app/**/*.js.map
+/angular_material_schematics-*
 
 # dependencies
 /node_modules

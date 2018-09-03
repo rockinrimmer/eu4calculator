@@ -1,5 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PROVINCE, CLIMATE, TERRAIN } from './../../models/modifier';
+import { PROVINCE, CLIMATE, TERRAIN, RELIGION, ECONOMIC, HRE, POLITICAL, COUNTRY } from './../../models/modifier';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,6 +12,12 @@ export class InstitutionInputComponent implements OnInit {
   PROVINCE = PROVINCE;
   CLIMATE = CLIMATE;
   TERRAIN = TERRAIN;
+  RELIGION = RELIGION;
+  ECONOMIC = ECONOMIC;
+  HRE = HRE;
+  POLITICAL = POLITICAL;
+  COUNTRY = COUNTRY;
+
 
   institutionForm: FormGroup;
 

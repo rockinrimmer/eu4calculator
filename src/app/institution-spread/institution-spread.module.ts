@@ -1,29 +1,29 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InstitutionSpreadRouting } from './institution-spread.routing';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatSelectModule,
+   MatTabsModule, MatTooltipModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InstitutionInputComponent } from './components/institution-input/institution-input.component';
 import { InstitutionOutputComponent } from './components/institution-output/institution-output.component';
 import { InstitutionSpreadComponent } from './components/institution-spread/institution-spread.component';
-import { MdTabsModule, MdCheckboxModule, MdTooltipModule, MdCardModule,
-  MdRadioModule, MdInputModule, MdButtonModule, MdSelectModule
-} from '@angular/material';
+import { InstitutionSpreadRouting } from './institution-spread.routing';
+import { InstitutionSpreadService } from './services/institution-spread.service';
 
 @NgModule({
   imports: [
     CommonModule,
     InstitutionSpreadRouting,
     ReactiveFormsModule,
-    MdButtonModule,
-    MdInputModule,
-    MdRadioModule,
-    MdCardModule,
-    MdTooltipModule,
-    MdCheckboxModule,
-    MdTabsModule,
-    MdSelectModule,
+    MatButtonModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatSelectModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],
@@ -32,6 +32,8 @@ import { MdTabsModule, MdCheckboxModule, MdTooltipModule, MdCardModule,
     InstitutionOutputComponent,
     InstitutionSpreadComponent
   ],
-  exports: [InstitutionSpreadComponent]
+  exports: [InstitutionSpreadComponent],
+  providers: [InstitutionSpreadService],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class InstitutionSpreadModule { }

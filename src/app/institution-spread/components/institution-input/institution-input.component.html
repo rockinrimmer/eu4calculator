@@ -1,45 +1,70 @@
-<md-card class="card">
-    <md-card-header>
-      <md-icon md-card-avatar class="fa fa-wrench fa-3x"></md-icon>
-      <md-card-title>Options</md-card-title>
-    <md-card-subtitle>Change these to your current in-game values</md-card-subtitle>
-    </md-card-header>
-    <md-card-content>
+<mat-card class="card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="fa fa-wrench fa-3x"></mat-icon>
+      <mat-card-title>Options</mat-card-title>
+      <mat-card-subtitle>Change these to your current in-game values</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
       <form [formGroup]="institutionForm">
         <p>
-          <md-form-field>
-            <input mdInput placeholder="Province Development" type="text" formControlName="provinceDevelopment" />
-          </md-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Province Development" type="text" formControlName="provinceDevelopment" />
+          </mat-form-field>
         </p>
 
         <p>
-          <md-form-field>
-            <input mdInput placeholder="Total Development" type="text" formControlName="totalDevelopment" />
-          </md-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Total Development" type="text" formControlName="totalDevelopment" />
+          </mat-form-field>
         </p>
 
         <p>
-          <md-select placeholder="Climate" name="climate">
-            <md-option *ngFor="let climate of CLIMATE" [value]="climate">
+          <mat-select placeholder="Climate" name="climate">
+            <mat-option *ngFor="let climate of CLIMATE" [value]="climate">
               {{climate.name}}
-            </md-option>
-          </md-select>
+            </mat-option>
+          </mat-select>
 
-          <md-select placeholder="Terrain" name="terrain">
-            <md-option *ngFor="let terrain of TERRAIN" [value]="terrain">
+          <mat-select placeholder="Terrain" name="terrain">
+            <mat-option *ngFor="let terrain of TERRAIN" [value]="terrain">
               {{terrain.name}}
-            </md-option>
-          </md-select>
+            </mat-option>
+          </mat-select>
         </p>
 
 
-        <md-tab-group>
-          <md-tab label="Province">
+        <mat-tab-group>
+          <mat-tab label="Province">
             <div *ngFor="let bonus of PROVINCE">
-              <md-checkbox [value]="bonus.name" >{{bonus.name}}</md-checkbox>
+              <mat-checkbox [value]="bonus.name" >{{bonus.name}}</mat-checkbox>
             </div>
-          </md-tab>
-        </md-tab-group>
+          </mat-tab>
+          <mat-tab label="Religion">
+            <div *ngFor="let bonus of RELIGION">
+              <mat-checkbox [value]="bonus.name" >{{bonus.name}}</mat-checkbox>
+            </div>
+          </mat-tab>
+          <mat-tab label="Economic">
+            <div *ngFor="let bonus of ECONOMIC">
+              <mat-checkbox [value]="bonus.name" >{{bonus.name}}</mat-checkbox>
+            </div>
+          </mat-tab>
+          <mat-tab label="HRE">
+            <div *ngFor="let bonus of HRE">
+              <mat-checkbox [value]="bonus.name" >{{bonus.name}}</mat-checkbox>
+            </div>
+          </mat-tab>
+          <mat-tab label="Political">
+            <div *ngFor="let bonus of POLITICAL">
+              <mat-checkbox [value]="bonus.name" >{{bonus.name}}</mat-checkbox>
+            </div>
+          </mat-tab>
+          <mat-tab label="Country">
+            <div *ngFor="let bonus of COUNTRY">
+              <mat-checkbox [value]="bonus.name" >{{bonus.name}}</mat-checkbox>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
       </form>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>

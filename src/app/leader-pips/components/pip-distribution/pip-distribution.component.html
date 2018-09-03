@@ -5,12 +5,12 @@
     <th><img src="assets/{{typeFilenamePrefix}}_leader_fire.png" matTooltip="Leader Fire" matTooltipPosition="above"/></th>
     <th><img src="assets/{{typeFilenamePrefix}}_leader_shock.png" matTooltip="Leader Shock" matTooltipPosition="above"/></th>
     <th><img src="assets/{{typeFilenamePrefix}}_leader_maneuver.png" matTooltip="Leader Maneuver" matTooltipPosition="above"/></th>
-    <th *ngIf="typeFilenamePrefix === 'Land'"><img src="assets/Leader_siege.png" matTooltip="Leader Siege" matTooltipPosition="above"/></th>
+    <th><img src="assets/Leader_siege.png" matTooltip="Leader Siege" matTooltipPosition="above"/></th>
   </tr>
   <tr>
     <td><strong>{{avgPipDistribution.fire | number : '1.0-1'}}</strong></td>
     <td><strong>{{avgPipDistribution.shock | number : '1.0-1'}}</strong></td>
     <td><strong>{{avgPipDistribution.maneuver | number : '1.0-1'}}</strong></td>
-    <td *ngIf="typeFilenamePrefix === 'Land'"><strong>{{avgPipDistribution.siege | number : '1.0-1'}}</strong></td>
+    <td><strong>{{avgPipDistribution.siege | number : '1.0-1'}}</strong></td>
   </tr>
 </table>

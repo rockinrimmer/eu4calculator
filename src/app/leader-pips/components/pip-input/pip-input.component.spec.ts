@@ -1,11 +1,11 @@
 import { PipCalculatorComponent } from './../pip-calculator/pip-calculator.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule, MatInputModule, MatRadioModule, MatCardModule,
-   MatTooltipModule, MatCheckboxModule, MatTabsModule } from '@angular/material';
+   MatTooltipModule, MatCheckboxModule, MatTabsModule, MatIconModule } from '@angular/material';
 import { LeaderPipsRouting } from './../../leader-pips.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './../../../shared/shared.module';
-import { CommonModule, APP_BASE_HREF } from '@angular/common';
+import { CommonModule, APP_BASE_HREF, DecimalPipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PipDistributionComponent } from './../pip-distribution/pip-distribution.component';
 import { PipInputComponent } from './../pip-input/pip-input.component';
@@ -31,6 +31,7 @@ describe('PipInputComponent', () => {
         MatTooltipModule,
         MatCheckboxModule,
         MatTabsModule,
+        MatIconModule,
         FlexLayoutModule,
         BrowserAnimationsModule
       ],
@@ -40,7 +41,7 @@ describe('PipInputComponent', () => {
         PipInputComponent,
         PipOutputComponent
       ],
-      providers: [PipCalculatorService, {provide: APP_BASE_HREF, useValue : '/' }],
+      providers: [PipCalculatorService, DecimalPipe, {provide: APP_BASE_HREF, useValue : '/' }],
     })
     .compileComponents();
   }));

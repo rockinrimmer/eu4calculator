@@ -52,50 +52,78 @@ export const PIP_BONUSES: PipBonus[] = [
   new PipBonus('Smolenskian idea 5: Hold The Line', PipType.Fire, PipBonusGroup.Country, LAND_LEADERS),
 
   new PipBonus('Ajuuraan idea 6: Expelling the Infidel', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Aq Qoyunlu idea 1: The White Sheep', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Arawak idea 7: Jungle Warfare', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Charruan idea 3: Bolas Warfare', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Chiba idea 5: Katori Jingu', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Hatakeyama idea 2: Indomitable Generals', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Hojo idea 2: Night Combat', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Horde idea 4: Steppe Leaders', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Jerusalem idea 5: Crusader Aristocracy', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Lithuanian idea 1: Warlord Dukes', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Mexican idea 6: Heroes of the Revolution', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Oda idea 3: Oda Generals', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Rassid idea 6: Like Salt Dissolves in Water', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Shan idea 5: Raiders', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Shoni idea 5: Bear of Hizen', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
-  new PipBonus('Tibetan idea 2: Bön Influence.', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Tibetan idea 2: Bön Influence', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Tyrconnell idea 5: Lessons of Knockavoe', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Wallachian idea 5: Legacy of the Impaler', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Yamana idea 4: The Western Army', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
 
   new PipBonus('Air idea 6: Nomadic Traditions', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Albanian idea 2: Land of Ambushers', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Arabian idea 6: Clan Loyalties', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Caucasian idea 3: Hit and Run', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Kazani idea 5: Steppe Warfare', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Pacific Northwest idea 5: Legacy of Raven', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Permian idea 5: Warriors of the Taiga', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Qara Qoyunlu 4: Dynamic Warfare', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Romanian idea 2: Skilled Commanders', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Tapuian idea 5: The Way of the Jaguar', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Tyrone idea 6: Ambush Warfare', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Zaporozhian idea 4: Hit And Run', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
 
   new PipBonus('Nepali idea 7: Envelopment and Blockade', PipType.Siege, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Oda idea 4: Influential Strongholds', PipType.Siege, PipBonusGroup.Country, LAND_LEADERS),
 
   new PipBonus('Dutch idea 4: Instructie voor de Admiraliteiten', PipType.Fire, PipBonusGroup.Country, NAVAL_LEADERS, 2),
+  new PipBonus('Madyas ambition', PipType.Fire, PipBonusGroup.Country, NAVAL_LEADERS),
 
+  new PipBonus('Madyas idea 4: Masters of Maritime Warfare', PipType.Shock, PipBonusGroup.Country, NAVAL_LEADERS),
+
+  new PipBonus('British idea 7: Britannia Rules the Waves', PipType.Maneuver, PipBonusGroup.Country, NAVAL_LEADERS),
+  new PipBonus('Mahri idea 4: Pilots of the Arabian Sea', PipType.Maneuver, PipBonusGroup.Country, NAVAL_LEADERS),
   new PipBonus('Mogadishan idea 2: Somali sailors', PipType.Maneuver, PipBonusGroup.Country, NAVAL_LEADERS),
   new PipBonus('Omani idea 6: Skilled Captains', PipType.Maneuver, PipBonusGroup.Country, NAVAL_LEADERS),
   new PipBonus('Swahili idea 2: Monsoon Season', PipType.Maneuver, PipBonusGroup.Country, NAVAL_LEADERS),
+  new PipBonus('Madyas traditions', PipType.Maneuver, PipBonusGroup.Country, NAVAL_LEADERS),
 
 
   new PipBonus('Bohemian ambition', PipType.Fire, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Utsunomiya ambition', PipType.Fire, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Mori ambition', PipType.Fire, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Oda ambition', PipType.Fire, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Qara Qoyunlu ambition', PipType.Fire, PipBonusGroup.Country, LAND_LEADERS),
 
 
   new PipBonus('Air ambition', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Arabian ambition', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Manchu ambition', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
   new PipBonus('Swedish ambition', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Manchu traditions', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Qara Qoyunlu traditions', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Scottish traditions', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Shirvani traditions', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Timurid traditions', PipType.Shock, PipBonusGroup.Country, LAND_LEADERS),
 
   new PipBonus('Shawnee ambition', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS, 2),
-  new PipBonus('Lithuanian ambition', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS)
+  new PipBonus('Lithuanian ambition', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Ainu traditions', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
+  new PipBonus('Carib traditions', PipType.Maneuver, PipBonusGroup.Country, LAND_LEADERS),
+
+  new PipBonus('Meath ambition', PipType.Siege, PipBonusGroup.Country, LAND_LEADERS)
+
 ].sort((a, b) => {
   if (a.name < b.name) {
     return -1;

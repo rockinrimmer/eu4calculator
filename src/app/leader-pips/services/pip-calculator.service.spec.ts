@@ -1,3 +1,4 @@
+import { DecimalPipe } from '@angular/common';
 import {LeaderType} from '../models/leader-type';
 import { TestBed, inject } from '@angular/core/testing';
 
@@ -6,7 +7,7 @@ import { PipCalculatorService } from './pip-calculator.service';
 describe('PipCalculatorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PipCalculatorService]
+      providers: [PipCalculatorService, DecimalPipe]
     });
   });
 

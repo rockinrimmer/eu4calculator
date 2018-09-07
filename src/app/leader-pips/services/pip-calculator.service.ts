@@ -3,11 +3,12 @@ import { PipBonus } from './../models/pip-bonus';
 import { Injectable } from '@angular/core';
 import { LeaderType, LAND_LEADERS, NAVAL_LEADERS } from '../models/leader-type';
 import { PipType } from '../models/pip-type';
+import { DecimalPipe } from '@angular/common';
 
 @Injectable()
 export class PipCalculatorService {
 
-  constructor() { }
+  constructor(private decimalPipe: DecimalPipe) { }
 
   private readonly maxLandPips = 24;
   private readonly maxNavalPips = 18;
@@ -42,7 +43,6 @@ export class PipCalculatorService {
       sum += pips;
     }
 
-    console.log(sum / this.iterations);
     return sum / this.iterations;
   }
 
@@ -110,7 +110,7 @@ export class PipCalculatorService {
   }
 
   pipDistribution(pips: number, pipBonuses: PipBonus[], leaderType: LeaderType): PipDistribution {
-
+    
     const pipDistribution = new PipDistribution();
 
     while (pips > 10) {
@@ -152,15 +152,14 @@ export class PipCalculatorService {
 
     while (pips > 0) {
       const random = this.getRandomInt(0, 9);
-
-      if (random === 0 && LAND_LEADERS.includes(leaderType) && pipDistribution.siege < 6) {
-        pipDistribution.siege++;
+      if (random === 0 && pipDistribution.siege < 6) {
+        (pips >= 1 ) ? pipDistribution.siege++ : pipDistribution.siege += Number(this.decimalPipe.transform(pips, '1.0-1'));
       } else if (random < 4 && pipDistribution.shock < 6) {
-        pipDistribution.shock++;
+        (pips >= 1 ) ? pipDistribution.shock++ : pipDistribution.shock += Number(this.decimalPipe.transform(pips, '1.0-1'));
       } else if (random < 7 && pipDistribution.fire < 6) {
-        pipDistribution.fire++;
+        (pips >= 1 ) ? pipDistribution.fire++ : pipDistribution.fire += Number(this.decimalPipe.transform(pips, '1.0-1'));
       } else if (pipDistribution.maneuver < 6) {
-        pipDistribution.maneuver++;
+        (pips >= 1 ) ? pipDistribution.maneuver++ : pipDistribution.maneuver += Number(this.decimalPipe.transform(pips, '1.0-1'));
       }
 
       pips--;

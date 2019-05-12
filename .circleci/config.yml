@@ -1,0 +1,62 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8-browsers
+    steps:
+      - checkout
+      - run:
+          name: Print Directory
+          command: |
+            ls -l
+      - run:
+          name: Setup Chrome
+          command: |
+              export CHROME_BIN=chromium-browser
+              export DISPLAY=:99.0
+              google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+      - run:
+          name: Install
+          command: |
+              npm install
+      - run:
+          name: Build and Test
+          command: |
+              npm run test-once
+              npm run e2e
+              npm run build-prod
+
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - ./*
+     
+  deploy:
+      machine:
+        enabled: true
+      steps:
+        - add_ssh_keys:
+            fingerprints:
+              - "0b:81:fa:de:11:79:5e:0a:43:62:0b:cd:e2:10:48:97"
+        - attach_workspace:
+            at: dist
+        - run:
+            name: Print Directory
+            command: |
+              ls -l
+        - run:
+            name: Deploy to server
+            command: |
+              rsync --delete -av --chown=root:root --chmod=ugo=rX -e "ssh -p 2222" dist/ $SSH_USER@$SSH_HOST:/var/www/eu4calculator.com/
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

@@ -16,9 +16,9 @@ jobs:
               export DISPLAY=:99.0
               google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
       - run:
-          name: Setup Angular CLI
+          name: Install
           command: |
-              npm install -g @angular/cli
+              npm install
       - run:
           name: Build and Test
           command: |

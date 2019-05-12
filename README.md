@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/rockinrimmer/eu4calculator.svg)](https://greenkeeper.io/)
 
-[![Build Status](https://travis-ci.org/rockinrimmer/eu4calculator.svg?branch=master)](https://travis-ci.org/rockinrimmer/eu4calculator)
+[![CircleCI](https://circleci.com/gh/rockinrimmer/eu4calculator.svg?style=svg&circle-token=c249cc3928c02e50d35c974addcebbcc80a76955)](https://circleci.com/gh/rockinrimmer/eu4calculator)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 

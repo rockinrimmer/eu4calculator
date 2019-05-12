@@ -22,9 +22,9 @@ jobs:
       - run:
           name: Build and Test
           command: |
-              ng test --watch=false
-              ng e2e
-              ng build --prod
+              npm run ng test --watch=false
+              npm run ng e2e
+              npm run ng build --prod
 
       - persist_to_workspace:
           root: dist
